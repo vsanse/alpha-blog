@@ -1,23 +1,26 @@
-<h1>Edit Article: <%= @article[:title] %></h1>
-<% if @article.errors.any? %>
-    <h2>Following erros prevented article from being saved</h2>
-    <ul>    
-        <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %> 
-    </ul>
-<% end %>
-<%= form_with scope: :article, url: articles_path, local: true do |f| %>
-    <%= f.label :title %>
-    <br>
-    <%= f.text_field :title, placeholder: "Enter Title", value: @article[:title] %>
-    <br>
-    <br>
-    <%= f.label :description  %>
-    <br>
-    <%= f.text_area :description, placeholder: "Enter Description", value: @article[:description] %>
-    <br>
-    <%= f.submit %>
-<% end %>
-<br>
-<%= link_to "Back", articles_path %>
+<div class="flex flex-col items-start shadow-2xl p-4 edit-pg" >
+    <h1 class="text-2xl font-bold leading-7 text-gray-900 mb-4">Edit Article</h1>
+    <% if @article.errors.any? %>
+    <h2 class="text-xl font-bold text-lg text-gray-600 mb-1">Following erros prevented article from being saved</h2>
+        <ul class="list-disc list ml-4">    
+            <% @article.errors.full_messages.each do |msg| %>
+                <li class="text-red-600 text-sm"><%= msg %></li>
+            <% end %> 
+        </ul>
+    <% end %>
+    <%= form_with model: @article, local: true, class: "mb-4" do |f| %>
+        <div class="my-4 flex flex-col items-start">
+            <%= f.label :title, class: "text-gray-700 font-bold" %>
+            <%= f.text_field :title, class: "my-2 border-gray-400 border-solid border-b outline-0", placeholder: "Add Title" %>
+        </div>
+        <div class="my-4 flex flex-col items-start">
+             <%= f.label :description, class: "text-gray-700 font-bold" %>
+            <%= f.text_area :description, class: "my-2 border-gray-400 border-solid border rounded p-2 outline-0 resize-none", placeholder: "Add Description"%>
+        </div>
+        <div>
+            <%= f.submit class: "inline-flex bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 mr-4 rounded" %>
+             <%= link_to "Back to Articles", articles_path, class: "inline-flex bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" %>
+        </div>
+    <%end%>
+   
+</div>

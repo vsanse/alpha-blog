@@ -1,6 +1,13 @@
-<h1>Showing article details</h1>
-<p><strong>Title: <%= @article.title %></strong></p>
-<p><strong>Description: <%= @article.description %></strong></p>
-<p>Created At <%= @article.created_at.strftime('%F %T') %></p>
-
-<%= link_to "Back", articles_path %>
+<div >
+    <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate mb-4">Showing article details</h1>
+    <div>
+        <p class="flex flex-col"><strong class="text-purple-500">Title:</strong> <%= @article.title %></p>
+        <p class="flex flex-col mt-4"> <strong class="text-purple-500">Description:</strong> <%= @article.description %></p>
+        <p class="flex flex-col mt-4 mb-8"><strong class="text-purple-500">Created At</strong> <%= @article.created_at.strftime('%F %T') %></p>
+    </div>
+    <div>
+        <%= link_to "Edit Article", edit_article_path(@article), class: "inline-flex bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mr-4 rounded" %>
+        <%# <%= link_to "Delete Article", article_path(@article), data: { "turbo-method": :delete, "turbo-confirm": "are you sure?" }, class: "inline-flex bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mr-4 rounded" %> 
+        <%= link_to "Back to Articles", articles_path, class: "inline-flex bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" %>
+    </div>
+</div>

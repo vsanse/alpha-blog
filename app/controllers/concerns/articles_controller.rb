@@ -30,7 +30,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = Article.new(params.require(:article).permit(:title, :description))
+    @article = Article.find(params[:id])
+    @article.update(params.require(:article).permit(:title, :description))
     # binding.break
     if @article.save
       # flash msg when success
@@ -41,5 +42,11 @@ class ArticlesController < ApplicationController
       #   binding.break
       render 'edit', status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
   end
 end
