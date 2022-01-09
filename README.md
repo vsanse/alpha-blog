@@ -1,24 +1,8 @@
-# README
+### Deploed at
+[Heroku](https://railscrudtraining.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Fixes to problems
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ - Use data: {"turbo-method":  :delete, "turbo-confirm":  "are you sure?"} with link_to helper
+ - Use method: :delete with button_to helper [pending show confirm correctly]
+ - can pass variabes to partials via variable:  value or local variable via locals: {variable: value}
