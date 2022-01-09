@@ -4,7 +4,7 @@
         <p class="flex flex-col"><strong class="text-purple-500">Title:</strong> <%= @article.title %></p>
         <p class="flex flex-col mt-4"> <strong class="text-purple-500">Description:</strong> <%= @article.description %></p>
         <p class="flex flex-col mt-4"><strong class="text-purple-500">Created: </strong> <%= time_ago_in_words(@article.created_at) %></p>
-        <p class="flex flex-col mt-4 mb-8"><strong class="text-purple-500">Updated At</strong> <%=time_ago_in_words(@article.updated_at) %></p>
+        <p class="flex flex-col mt-4 mb-8"><strong class="text-purple-500">Updated:</strong> <%=time_ago_in_words(@article.updated_at) %></p>
     </div>
     <div class="flex">
         <%= link_to "Edit Article", edit_article_path(@article), class: "inline-flex bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mr-4 rounded" %>
