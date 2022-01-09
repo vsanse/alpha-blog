@@ -1,0 +1,23 @@
+<h1>Edit Article: <%= @article[:title] %></h1>
+<% if @article.errors.any? %>
+    <h2>Following erros prevented article from being saved</h2>
+    <ul>    
+        <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %> 
+    </ul>
+<% end %>
+<%= form_with scope: :article, url: articles_path, local: true do |f| %>
+    <%= f.label :title %>
+    <br>
+    <%= f.text_field :title, placeholder: "Enter Title", value: @article[:title] %>
+    <br>
+    <br>
+    <%= f.label :description  %>
+    <br>
+    <%= f.text_area :description, placeholder: "Enter Description", value: @article[:description] %>
+    <br>
+    <%= f.submit %>
+<% end %>
+<br>
+<%= link_to "Back", articles_path %>
