@@ -2,10 +2,13 @@
     <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate mb-4">Showing article details</h1>
     <div class="shadow-2xl p-4 bg-white rounded">    
         <div>
-            <p class="flex flex-col"><strong class="text-purple-500">Title:</strong> <%= @article.title %></p>
-            <p class="flex flex-col mt-4 flex-wrap break-all max-w-5xl"> <strong class="text-purple-500">Description:</strong> <%= @article.description %></p>
-            <p class="flex flex-col mt-4"><strong class="text-purple-500">Created: </strong> <%= time_ago_in_words(@article.created_at) %> ago</p>
-            <p class="flex flex-col mt-4 mb-8"><strong class="text-purple-500">Updated:</strong> <%=time_ago_in_words(@article.updated_at) %> ago</p>
+            <% if @article.user %>
+                <p class="flex flex-col mb-4"><strong class="text-purple-500">Article by:</strong> <%= @article.user.fullname %></p>
+            <% end %>
+            <p class="flex flex-col mb-4"><strong class="text-purple-500">Title:</strong> <%= @article.title %></p>
+            <p class="flex flex-col mb-4 flex-wrap break-all max-w-5xl"> <strong class="text-purple-500">Description:</strong> <%= @article.description %></p>
+            <p class="flex flex-col mb-4"><strong class="text-purple-500">Created: </strong> <%= time_ago_in_words(@article.created_at) %> ago</p>
+            <p class="flex flex-col mb-8"><strong class="text-purple-500">Updated:</strong> <%=time_ago_in_words(@article.updated_at) %> ago</p>
         </div>
         <div class="flex">
             <%= link_to "Edit Article", edit_article_path(@article), class: "inline-flex bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mr-4 rounded" %>
