@@ -8,7 +8,7 @@
   </div>
   <h3 class="text-xl font-bold leading-7 text-gray-900 my-4">Articles</h3>
   <% if @user.articles.empty?  %>
-    <%= render "layouts/alert", msg: "No Articles found. Please create one using button below" %>
+    <%= render "layouts/alert", msg: "No Articles found. Please create one using button below", name: 'alert'%>
   <% else %>
     <% @user.articles.each do |article| %>
       <%= render partial:'articles/article', locals: {article: article} %>

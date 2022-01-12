@@ -10,7 +10,7 @@
 </div>
 <div class="flex flex-col mb-3">
   <% if @articles.empty?  %>
-    <%= render "layouts/alert", msg: "No Articles found. Please create one using button below" %>
+    <%= render "layouts/alert", msg: "No Articles found. Please create one using button below", name: 'alert' %>
   <% else %>
     <% @articles.each do |article| %>
       <%= render partial:'article', locals: {article: article} %>

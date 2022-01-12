@@ -1,5 +1,5 @@
 <div class="py-8">
-  <div class="p-6 <%=name == 'notice'? 'bg-indigo-50 border-indigo-500': 'bg-red-50 border-red-500' %> border-l-4 rounded-r-lg">
+  <div class="p-6 <%= name == 'notice'? 'bg-indigo-50 border-indigo-500': 'bg-red-50 border-red-500' %> border-l-4 rounded-r-lg">
     <div class="flex items-center">
       <h3 class="<%=name == 'notice'? 'text-indigo-800': 'text-red-800' %> font-medium"><%= msg %></h3>
       <%# <button class="ml-auto">
