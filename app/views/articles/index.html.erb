@@ -1,12 +1,12 @@
 <h1 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Articles Listing Page</h1>
 <div class="flex flex-col mb-3">
-    <% if @articles.empty?  %>
-        <%= render "layouts/alert", msg: "No Articles found. Please create one using button below" %>
-    <% else %>
-        <% @articles.each do |article| %>
-            <%= render partial:'article', locals: {article: article} %>
-        <% end %>
-        <%# <div class="mb-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <% if @articles.empty?  %>
+    <%= render "layouts/alert", msg: "No Articles found. Please create one using button below" %>
+  <% else %>
+    <% @articles.each do |article| %>
+      <%= render partial:'article', locals: {article: article} %>
+    <% end %>
+    <%# <div class="mb-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
@@ -17,6 +17,7 @@
                 </div>
             </div>
         </div> %>
-    <% end %>
+  <% end %>
 </div>
-<%= link_to "New article", new_article_path, class: "inline-flex bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded" %></div>
+<%= link_to "New article", new_article_path, class: "mr-4 inline-flex bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded" %>
+<%= render 'shared/back-btn', title: "Back Home", path: root_path%>

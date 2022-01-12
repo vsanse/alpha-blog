@@ -1,0 +1,23 @@
+<%= render 'shared/errors', obj: @user%>
+<%= form_with model: @user, local: true, class: "mb-4" do |f| %>
+    <div class="my-4 flex flex-col items-start">
+        <%= f.label :fullname, class: "text-gray-700 font-bold" %>
+        <%= f.text_field :fullname, class: "my-2 border-gray-400 border-solid border rounded p-2 outline-0 resize-none", placeholder: "Enter Full Name" %>
+    </div>
+    <div class="my-4 flex flex-col items-start">
+        <%= f.label :username, class: "text-gray-700 font-bold" %>
+        <%= f.text_field :username, class: "my-2 border-gray-400 border-solid border rounded p-2 outline-0 resize-none", placeholder: "Enter Username"%>
+    </div>
+    <div class="my-4 flex flex-col items-start">
+        <%= f.label :email, class: "text-gray-700 font-bold" %>
+        <%= f.email_field :email, class: "my-2 border-gray-400 border-solid border rounded p-2 outline-0 resize-none", placeholder: "Enter Email"%>
+    </div>
+    <div class="my-4 flex flex-col items-start">
+        <%= f.label :password, class: "text-gray-700 font-bold" %>
+        <%= f.password_field :password, class: "my-2 border-gray-400 border-solid border rounded p-2 outline-0 resize-none", placeholder: "Choose a password"%>
+    </div>
+    <div>
+        <%= f.submit "Sign up", class: "inline-flex bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 mr-4 rounded" %>
+        <%= render 'shared/back-btn', title: "Back Home", path: root_path%>
+    </div>
+<%end%>
