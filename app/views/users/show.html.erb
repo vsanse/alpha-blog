@@ -1,0 +1,19 @@
+<div class="flex flex-col items-start shadow-2xl p-4 bg-white rounded items-center" >
+  <h1 class="text-2xl font-bold leading-7 text-gray-900 mb-4"><%= @user.fullname %>'s Profile</h1>
+  <%= gravatar_for @user, size: 100 %>
+  <div class="flex mt-4">
+    <%= link_to "All Public Articles", articles_path, class: "inline-flex bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " %>
+    <%= link_to "Edit Profile", edit_user_path(@user), class: "inline-flex bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded mx-4" %>
+    <%= button_to "Logout", logout_path, method: :delete, class: "inline-flex bg-red-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+  <h3 class="text-xl font-bold leading-7 text-gray-900 my-4">Articles</h3>
+  <% if @user.articles.empty?  %>
+    <%= render "layouts/alert", msg: "No Articles found. Please create one using button below" %>
+  <% else %>
+    <% @user.articles.each do |article| %>
+      <%= render partial:'articles/article', locals: {article: article} %>
+    <% end %>
+  <% end %>
+  <%= link_to "New article", new_article_path, class: "mr-4 inline-flex bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded mt-4" %>
+
+</div>

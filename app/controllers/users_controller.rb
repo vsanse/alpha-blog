@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   def new
+    redirect_to user_path(current_user) if logged_in?
     @user = User.new
   end
 
@@ -8,8 +9,10 @@ class UsersController < ApplicationController
     # binding.break
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
+      session[:user_name] = @user.fullname
       flash[:notice] = 'You have successfully signed up'
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,10 +21,10 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    @user.update(user_params);
+    @user.update(user_params)
     if @user.save
       flash[:notice] = 'Your account info successfully updated'
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       render :new, status: :unprocessable_entity
     end

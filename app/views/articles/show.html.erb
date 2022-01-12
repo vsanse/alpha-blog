@@ -11,7 +11,9 @@
       <p class="flex flex-col mb-8"><strong class="text-purple-500">Updated:</strong> <%=time_ago_in_words(@article.updated_at) %> ago</p>
     </div>
     <div class="flex">
-      <%= link_to "Edit Article", edit_article_path(@article), class: "inline-flex bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mr-4 rounded" %>
+      <% if has_access?(@article.user_id) %>
+        <%= link_to "Edit Article", edit_article_path(@article), class: "inline-flex bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 mr-4 rounded" %>
+      <% end %>
       <%# <%= link_to "Delete Article", article_path(@article), data: { "turbo-method": :delete, "turbo-confirm": "are you sure?" }, class: "inline-flex bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mr-4 rounded" %>
       <%# <%= button_to "Delete this article", @article, method: :delete, data: { confirm: "are you sure?" },  class: "inline-flex bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mr-4 rounded" %>
       <%= render 'shared/back-btn', title: "Back to Articles", path: articles_path%>

@@ -1,0 +1,17 @@
+<div class="flex flex-col items-start shadow-2xl p-4 bg-white rounded" >
+  <h1 class="text-2xl font-bold leading-7 text-gray-900 mb-4">SignIn</h1>
+  <%= form_with(scope: :session, url: login_path, local: true, class: "mb-4") do |f| %>
+    <div class="my-4 flex flex-col items-start">
+      <%= f.label :email, class: "text-gray-700 font-bold" %>
+      <%= f.email_field :email, class: "my-2 border-gray-400 border-solid border rounded p-2 outline-0 resize-none", placeholder: "Enter Email"%>
+    </div>
+    <div class="my-4 flex flex-col items-start">
+      <%= f.label :password, class: "text-gray-700 font-bold" %>
+      <%= f.password_field :password, class: "my-2 border-gray-400 border-solid border rounded p-2 outline-0 resize-none", placeholder: "Choose a password"%>
+    </div>
+    <div>
+      <%= f.submit "Login", class: "inline-flex bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 mr-4 rounded"%>
+      <%= render 'shared/back-btn', title: "Back Home", path: root_path%>
+    </div>
+  <%end%>
+</div>
